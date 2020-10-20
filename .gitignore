@@ -1,0 +1,5 @@
+node_modules/
+dist/
+coverage/
+blake2b.js
+blake2s.js

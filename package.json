@@ -1,0 +1,56 @@
+{
+  "name": "@multiformats/blake2",
+  "version": "0.0.0-dev",
+  "description": "Multiformats BLAKE2 implementations",
+  "main": "blake2.js",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:source && npm run build:js",
+    "build:source": "node build.js b > blake2b.js && node build.js s > blake2s.js",
+    "build:js": "npm_config_yes=true npx ipjs@latest build --tests",
+    "publish": "npm_config_yes=true npx ipjs@latest publish",
+    "lint": "standard",
+    "test:cjs": "npm run build:js && mocha dist/cjs/node-test/test-*.js && npm run test:cjs:browser",
+    "test:node": "hundreds mocha test/test-*.js",
+    "test:cjs:browser": "polendina --cleanup dist/cjs/browser-test/test-*.js",
+    "test": "npm run build:source && npm run lint && npm run test:node && npm run test:cjs",
+    "test:node-v12": "npm run build:source && mocha test/test-*.js && npm run test:cjs",
+    "coverage": "c8 --reporter=html mocha test/test-*.js && npm_config_yes=true npx st -d coverage -p 8080"
+  },
+  "keywords": [
+    "IPFS",
+    "IPLD",
+    "multiformats",
+    "hash",
+    "multihash",
+    "blake2"
+  ],
+  "author": "Rod Vagg <r@va.gg>",
+  "license": "(Apache-2.0 AND MIT)",
+  "exports": {
+    ".": {
+      "import": "./blake2.js"
+    },
+    "./blake2b": {
+      "import": "./blake2b.js"
+    },
+    "./blake2s": {
+      "import": "./blake2s.js"
+    }
+  },
+  "devDependencies": {
+    "c8": "^7.3.0",
+    "hundreds": "0.0.7",
+    "mocha": "^8.1.1",
+    "polendina": "^1.0.0",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "blakejs": "^1.1.0",
+    "multiformats": "^4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/multiformats/js-blake2.git"
+  }
+}
