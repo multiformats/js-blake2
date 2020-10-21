@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "npm run build:source && npm run build:js",
-    "build:source": "node build.js b > blake2b.js && node build.js s > blake2s.js",
+    "build:source": "node build.js",
     "build:js": "npm_config_yes=true npx ipjs@latest build --tests",
     "publish": "npm_config_yes=true npx ipjs@latest publish",
     "lint": "standard",

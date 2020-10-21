@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 import * as blake2b from '@multiformats/blake2/blake2b'
 import * as blake2s from '@multiformats/blake2/blake2s'
+import blake2 from '@multiformats/blake2'
 import assert from 'assert'
 import { bytes } from 'multiformats'
 import table from './table.csv.js'
@@ -33,10 +34,19 @@ describe('Hashers', () => {
     .map((l) => l.split(',').map((e) => e.trim()).map((e) => e.startsWith('0x') ? parseInt(e, 16) : e))
 
   for (const [name,, code] of codecs) {
-    it(name, async () => {
-      const length = code - (name.startsWith('blake2b') ? bstart : sstart) + 1
+    const exportName = name.replace('-', '')
+    const b = name.startsWith('blake2b')
 
-      const hasher = (name.includes('2b') ? blake2b : blake2s)[name.replace('-', '')]
+    it(`${name} exports`, () => {
+      assert.strictEqual(
+        blake2[b ? 'blake2b' : 'blake2s'][exportName],
+        (b ? blake2b : blake2s)[exportName]
+      )
+    })
+
+    it(name, async () => {
+      const length = code - (b ? bstart : sstart) + 1
+      const hasher = (b ? blake2b : blake2s)[exportName]
       const hash = await hasher.digest(beepboop)
       assert.strictEqual(hash.code, hasher.code)
       assert.strictEqual(hash.digest.length, length)

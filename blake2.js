@@ -1,6 +1,4 @@
-// @ts-check
+import * as blake2b from './blake2b.js'
+import * as blake2s from './blake2s.js'
 
-import blake2b from '@multiformats/blake2/blake2b.js'
-import blake2s from '@multiformats/blake2/blake2s.js'
-
-export { blake2b, blake2s }
+export default { blake2b, blake2s }
