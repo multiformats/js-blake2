@@ -5,13 +5,15 @@
   "main": "blake2.js",
   "type": "module",
   "scripts": {
-    "build": "npm run build:source && npm run build:js",
+    "build": "npm run build:source && npm run build:js && npm run build:types",
+    "build:js": "ipjs build --tests --main && npm run build:copy",
     "build:source": "node build.js",
-    "build:js": "npm_config_yes=true npx ipjs@latest build --tests",
-    "publish": "npm_config_yes=true npx ipjs@latest publish",
+    "build:copy": "cp -a tsconfig.json *.js dist/",
+    "build:types": "npm run build:copy && cd dist && tsc --build",
+    "publish": "ipjs publish",
     "lint": "standard",
-    "test:cjs": "npm run build:js && mocha dist/cjs/node-test/test-*.js && npm run test:cjs:browser",
-    "test:node": "hundreds mocha test/test-*.js",
+    "test:cjs": "npm run build && mocha dist/cjs/node-test/test-*.js && npm run test:cjs:browser",
+    "test:node": "c8 --check-coverage --branches 100 --functions 100 --lines 100 mocha test/test-*.js",
     "test:cjs:browser": "polendina --cleanup dist/cjs/browser-test/test-*.js",
     "test": "npm run build:source && npm run lint && npm run test:node && npm run test:cjs",
     "test:node-v12": "npm run build:source && mocha test/test-*.js && npm run test:cjs",
@@ -39,18 +41,116 @@
     }
   },
   "devDependencies": {
-    "c8": "^7.3.0",
-    "hundreds": "0.0.7",
-    "mocha": "^8.1.1",
-    "polendina": "^1.0.0",
-    "standard": "^14.3.4"
+    "@ipld/dag-cbor": "^6.0.5",
+    "c8": "^7.7.3",
+    "ipjs": "^5.0.2",
+    "mocha": "^9.0.2",
+    "polendina": "^1.1.0",
+    "standard": "^16.0.3",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
-    "blakejs": "^1.1.0",
-    "multiformats": "^4.2.0"
+    "blakejs": "^1.1.1",
+    "multiformats": "^9.4.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/multiformats/js-blake2.git"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "types/*"
+      ],
+      "types/*": [
+        "types/*"
+      ]
+    }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "breaking": true,
+              "release": "major"
+            },
+            {
+              "revert": true,
+              "release": "patch"
+            },
+            {
+              "type": "feat",
+              "release": "minor"
+            },
+            {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
+              "type": "chore",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "test",
+              "release": "patch"
+            },
+            {
+              "scope": "no-release",
+              "release": false
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "chore",
+                "section": "Trivial Changes"
+              },
+              {
+                "type": "docs",
+                "section": "Trivial Changes"
+              },
+              {
+                "type": "test",
+                "section": "Tests"
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "dist"
+        }
+      ],
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
   }
 }
