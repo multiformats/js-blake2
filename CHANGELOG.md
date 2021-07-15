@@ -1,3 +1,10 @@
+### [1.0.1](https://github.com/multiformats/js-blake2/compare/v1.0.0...v1.0.1) (2021-07-15)
+
+
+### Trivial Changes
+
+* **deps:** bump actions/setup-node from 2.1.5 to 2.2.0 ([1071dda](https://github.com/multiformats/js-blake2/commit/1071ddad3d504e089dac34163d13e36cb85a3b35))
+
 ## 1.0.0 (2021-07-15)
 
 
