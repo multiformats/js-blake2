@@ -5,16 +5,15 @@
 `MultihashHashers`s are exported from this library, they produce `MultihashDigest`s. Details about these can be found in the [multiformats multihash interface definitions](https://github.com/multiformats/js-multiformats/blob/master/src/hashes/interface.ts).
 
 ```js
-import CID from 'multiformats/cid'
-import * as dagCbor from '@ipld/dag-cbor'
-import { blake2b256 } from '@multiformats/blake2/blake2b'
+import * as Block from 'multiformats/block'
+import * as codec from '@ipld/dag-cbor'
+import { blake2b256 as hasher } from '@multiformats/blake2/blake2b'
 
 async function run () {
-  const bytes = dagCbor.encode({ hello: 'world' })
-  const hash = await blake2b256.digest(bytesMultihashHasher)
-  const cid = CID.create(1, dagCbor.code, hash)
-  console.log(cid)
-  //> CID(bafy2bzacedtxqx7k666ugf5mmagr2fxmbpfncbcji5jfg5uduausgb62y3av4)
+  const value = { hello: 'world' }
+  const block = await Block.encode({ value, hasher, codec })
+  console.log(block.cid)
+  // -> CID(bafy2bzacedtxqx7k666ugf5mmagr2fxmbpfncbcji5jfg5uduausgb62y3av4)
 }
 
 run().catch(console.error)
