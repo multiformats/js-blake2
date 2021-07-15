@@ -1,4 +1,4 @@
-import CID from 'multiformats/cid'
+import { CID } from 'multiformats/cid'
 import * as dagCbor from '@ipld/dag-cbor'
 import { blake2b256 } from '@multiformats/blake2/blake2b'
 
