@@ -46,6 +46,7 @@
     "standard": "^14.3.4"
   },
   "dependencies": {
+    "@rvagg/blake2": "^0.0.1",
     "blakejs": "^1.1.0",
     "multiformats": "^4.2.0"
   },
