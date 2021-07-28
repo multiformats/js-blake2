@@ -35,8 +35,8 @@
   },
   "exclude": [
     "node_modules",
-    "esm",
-    "cjs"
+    "test",
+    "dist"
   ],
   "compileOnSave": false
 }
