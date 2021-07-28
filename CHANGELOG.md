@@ -1,3 +1,11 @@
+### [1.0.2](https://github.com/multiformats/js-blake2/compare/v1.0.1...v1.0.2) (2021-07-28)
+
+
+### Trivial Changes
+
+* **deps:** bump actions/setup-node from 2.2.0 to 2.3.0 ([c4f1a97](https://github.com/multiformats/js-blake2/commit/c4f1a97195d35c00ed899b4f62f09a6d0e7174b0))
+* update deps, fix release with new ipjs ([5298569](https://github.com/multiformats/js-blake2/commit/5298569e5bdc0270901b53672be278fd3ad02ab5))
+
 ### [1.0.1](https://github.com/multiformats/js-blake2/compare/v1.0.0...v1.0.1) (2021-07-15)
 
 
