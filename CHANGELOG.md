@@ -1,3 +1,10 @@
+### [1.0.8](https://github.com/multiformats/js-blake2/compare/v1.0.7...v1.0.8) (2021-12-10)
+
+
+### Bug Fixes
+
+* pin typescript and polendina to patch ([a42e777](https://github.com/multiformats/js-blake2/commit/a42e777c562b667480253bc71724d877c4dba909))
+
 ### [1.0.7](https://github.com/multiformats/js-blake2/compare/v1.0.6...v1.0.7) (2021-12-10)
 
 
