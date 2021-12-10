@@ -5,23 +5,24 @@
   "main": "blake2.js",
   "type": "module",
   "scripts": {
+    "lint": "standard",
     "build": "npm run build:source && npm run build:js && npm run build:types",
     "build:js": "ipjs build --tests --main && npm run build:copy",
     "build:source": "node build.js",
     "build:copy": "cp -a tsconfig.json *.js test dist/",
     "build:types": "tsc --build && mv types dist",
-    "publish": "ipjs publish",
-    "lint": "standard",
     "test:cjs": "npm run build && mocha dist/cjs/node-test/test-*.js && npm run test:cjs:browser",
+    "test:esm": "npm run build && mocha dist/esm/node-test/test-*.js && npm run test:esm:browser",
     "test:node": "c8 --check-coverage --branches 100 --functions 100 --lines 100 mocha test/test-*.js",
-    "test:cjs:browser": "polendina --cleanup dist/cjs/browser-test/test-*.js",
-    "test": "npm run build:source && npm run lint && npm run test:node && npm run test:cjs",
-    "test:node-v12": "npm run build:source && mocha test/test-*.js && npm run test:cjs",
+    "test:cjs:browser": "polendina --page --worker --serviceworker --cleanup dist/cjs/browser-test/test-*.js",
+    "test:esm:browser": "polendina --page --worker --serviceworker --cleanup dist/esm/browser-test/test-*.js",
+    "test": "npm run build:source && npm run lint && npm run test:node && npm run test:esm",
+    "test:ci": "npm run build:source && npm run lint && npm run test:node && npm run test:esm && npm run test:cjs",
     "coverage": "c8 --reporter=html mocha test/test-*.js && npm_config_yes=true npx st -d coverage -p 8080"
   },
   "keywords": [
-    "IPFS",
-    "IPLD",
+    "ipfs",
+    "ipld",
     "multiformats",
     "hash",
     "multihash",
@@ -40,23 +41,36 @@
       "import": "./blake2s.js"
     }
   },
-  "devDependencies": {
-    "@ipld/dag-cbor": "^6.0.6",
-    "c8": "^7.7.3",
-    "ipjs": "^5.0.3",
-    "mocha": "^9.0.3",
-    "polendina": "^1.1.0",
-    "standard": "^16.0.3",
-    "typescript": "^4.3.5"
-  },
   "dependencies": {
     "blakejs": "^1.1.1",
-    "multiformats": "^9.4.3"
+    "multiformats": "^9.5.4"
+  },
+  "devDependencies": {
+    "@ipld/dag-cbor": "^6.0.15",
+    "c8": "^7.10.0",
+    "chai": "^4.3.4",
+    "ipjs": "^5.2.0",
+    "mocha": "^9.1.3",
+    "polendina": "^2.0.1",
+    "standard": "^16.0.4",
+    "typescript": "^4.5.3"
+  },
+  "standard": {
+    "ignore": [
+      "dist"
+    ]
+  },
+  "directories": {
+    "test": "test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/multiformats/js-blake2.git"
   },
+  "bugs": {
+    "url": "https://github.com/multiformats/js-blake2/issues"
+  },
+  "homepage": "https://github.com/multiformats/js-blake2#readme",
   "typesVersions": {
     "*": {
       "*": [

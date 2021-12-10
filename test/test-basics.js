@@ -2,7 +2,7 @@
 import * as blake2b from '@multiformats/blake2/blake2b'
 import * as blake2s from '@multiformats/blake2/blake2s'
 import blake2 from '@multiformats/blake2'
-import assert from 'assert'
+import { assert } from 'chai'
 import { bytes } from 'multiformats'
 import table from './table.csv.js'
 
