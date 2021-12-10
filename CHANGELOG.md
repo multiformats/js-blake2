@@ -1,3 +1,11 @@
+### [1.0.7](https://github.com/multiformats/js-blake2/compare/v1.0.6...v1.0.7) (2021-12-10)
+
+
+### Trivial Changes
+
+* **no-release:** bump actions/setup-node from 2.4.1 to 2.5.0 ([#14](https://github.com/multiformats/js-blake2/issues/14)) ([fcb21c6](https://github.com/multiformats/js-blake2/commit/fcb21c63d4795e16aaf1bda02ee5e024b39c7357))
+* update testing, sync with latest patterns ([3e0ccf7](https://github.com/multiformats/js-blake2/commit/3e0ccf7ccc91e2d724be5dd0837cf2895be4deab))
+
 ### [1.0.6](https://github.com/multiformats/js-blake2/compare/v1.0.5...v1.0.6) (2021-09-28)
 
 
