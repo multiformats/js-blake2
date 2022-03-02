@@ -1,3 +1,13 @@
+### [1.0.9](https://github.com/multiformats/js-blake2/compare/v1.0.8...v1.0.9) (2022-03-02)
+
+
+### Trivial Changes
+
+* **deps-dev:** bump typescript from 4.5.5 to 4.6.2 ([#23](https://github.com/multiformats/js-blake2/issues/23)) ([af88175](https://github.com/multiformats/js-blake2/commit/af88175bf5564be296f64bd1720d5cb8acf2cd62))
+* **no-release:** bump @ipld/dag-cbor from 6.0.15 to 7.0.0 ([#18](https://github.com/multiformats/js-blake2/issues/18)) ([98269c4](https://github.com/multiformats/js-blake2/commit/98269c42ca09921d04d7458c8b3be45f62ad64af))
+* **no-release:** bump actions/setup-node from 2.5.0 to 2.5.1 ([#20](https://github.com/multiformats/js-blake2/issues/20)) ([ed86152](https://github.com/multiformats/js-blake2/commit/ed86152a36d72e52d94721c546c77e131b375e41))
+* **no-release:** bump actions/setup-node from 2.5.1 to 3 ([#22](https://github.com/multiformats/js-blake2/issues/22)) ([08eaebf](https://github.com/multiformats/js-blake2/commit/08eaebf40f5ce847151d09948541e4b606006601))
+
 ### [1.0.8](https://github.com/multiformats/js-blake2/compare/v1.0.7...v1.0.8) (2021-12-10)
 
 
