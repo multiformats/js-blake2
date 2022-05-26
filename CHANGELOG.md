@@ -1,3 +1,15 @@
+### [1.0.10](https://github.com/multiformats/js-blake2/compare/v1.0.9...v1.0.10) (2022-05-26)
+
+
+### Trivial Changes
+
+* **deps-dev:** bump typescript from 4.6.4 to 4.7.2 ([#30](https://github.com/multiformats/js-blake2/issues/30)) ([4173d23](https://github.com/multiformats/js-blake2/commit/4173d23cfd3c0fb3e0bd9312c8102128eb228756))
+* **no-release:** bump actions/checkout from 2.4.0 to 3 ([#25](https://github.com/multiformats/js-blake2/issues/25)) ([c3bdd51](https://github.com/multiformats/js-blake2/commit/c3bdd51f0222afd94974ab73ccdd1972b88dc069))
+* **no-release:** bump mocha from 9.2.2 to 10.0.0 ([#28](https://github.com/multiformats/js-blake2/issues/28)) ([c631070](https://github.com/multiformats/js-blake2/commit/c631070ffd90a2bb03df29cbd6e204dd4ab5f80e))
+* **no-release:** bump polendina from 2.0.15 to 3.0.0 ([#27](https://github.com/multiformats/js-blake2/issues/27)) ([f392553](https://github.com/multiformats/js-blake2/commit/f392553c7733c2b31641f845972d29b0753d950f))
+* **no-release:** bump polendina from 3.0.0 to 3.1.0 ([#29](https://github.com/multiformats/js-blake2/issues/29)) ([f9af8ed](https://github.com/multiformats/js-blake2/commit/f9af8edf91e17d02729a2273311199a2ee7ef9ac))
+* **no-release:** bump standard from 16.0.4 to 17.0.0 ([#26](https://github.com/multiformats/js-blake2/issues/26)) ([04a1772](https://github.com/multiformats/js-blake2/commit/04a17720ae072cea496dd805adad3fb112b70bd0))
+
 ### [1.0.9](https://github.com/multiformats/js-blake2/compare/v1.0.8...v1.0.9) (2022-03-02)
 
 
