@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/multiformats/js-blake2/compare/v1.0.10...v1.0.11) (2022-08-26)
+
+
+### Trivial Changes
+
+* **deps-dev:** bump typescript from 4.7.4 to 4.8.2 ([#31](https://github.com/multiformats/js-blake2/issues/31)) ([a30724d](https://github.com/multiformats/js-blake2/commit/a30724d64c51f5037d89a929c2f81e67fc4486be))
+
 ### [1.0.10](https://github.com/multiformats/js-blake2/compare/v1.0.9...v1.0.10) (2022-05-26)
 
 
