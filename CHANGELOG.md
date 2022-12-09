@@ -1,3 +1,11 @@
+## [1.0.12](https://github.com/multiformats/js-blake2/compare/v1.0.11...v1.0.12) (2022-12-09)
+
+
+### Trivial Changes
+
+* **deps-dev:** bump @ipld/dag-cbor from 7.0.3 to 8.0.0 ([#35](https://github.com/multiformats/js-blake2/issues/35)) ([8ac6541](https://github.com/multiformats/js-blake2/commit/8ac6541d6e266a8915e12af98315d560243fd353))
+* **deps-dev:** bump typescript from 4.8.4 to 4.9.4 ([#37](https://github.com/multiformats/js-blake2/issues/37)) ([55c1d47](https://github.com/multiformats/js-blake2/commit/55c1d472830013e73c16c1ecd94fa0a7d28b549b))
+
 ## [1.0.11](https://github.com/multiformats/js-blake2/compare/v1.0.10...v1.0.11) (2022-08-26)
 
 
