@@ -1,6 +1,7 @@
-import * as Block from 'multiformats/block'
+/* eslint no-console: off */
 import * as codec from '@ipld/dag-cbor'
-import { blake2b256 as hasher } from '@multiformats/blake2/blake2b'
+import * as Block from 'multiformats/block'
+import { blake2b256 as hasher } from './src/blake2b.js' // would be: '@multiformats/blake2/blake2b'
 
 async function run () {
   const value = { hello: 'world' }

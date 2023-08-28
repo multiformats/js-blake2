@@ -1,9 +1,9 @@
 /* eslint-env mocha */
-import * as blake2b from '@multiformats/blake2/blake2b'
-import * as blake2s from '@multiformats/blake2/blake2s'
-import blake2 from '@multiformats/blake2'
-import { assert } from 'chai'
+import { assert } from 'aegir/chai'
 import { bytes } from 'multiformats'
+import * as blake2b from '../src/blake2b.js'
+import * as blake2s from '../src/blake2s.js'
+import blake2 from '../src/index.js'
 import table from './table.csv.js'
 
 const fixtures = {
@@ -13,10 +13,14 @@ const fixtures = {
   'blake2s-40': ['beep boop', 'c5e402059ada01bb57']
 }
 
+/**
+ * @typedef {import("multiformats/hashes/hasher").MultihashHasher<number>} MultihashHasher
+ */
+
 describe('Digests', () => {
   for (const [name, fixture] of Object.entries(fixtures)) {
     it(name, async () => {
-      const hasher = (name.includes('2b') ? blake2b : blake2s)[name.replace('-', '')]
+      const hasher = /** @type {Record<string, MultihashHasher>} */ ((name.includes('2b') ? blake2b : blake2s))[name.replace('-', '')]
       const hash = await hasher.digest(bytes.fromString(fixture[0]))
       assert.strictEqual(hash.code, hasher.code)
       assert.strictEqual(bytes.toHex(hash.bytes), fixture[1])
@@ -29,9 +33,9 @@ describe('Hashers', () => {
   const sstart = 0xb241
   const beepboop = bytes.fromString('beep boop')
 
-  const codecs = table.split('\n')
+  const codecs = /** @type {[string,string,number][]} */ (table.split('\n')
     .filter((l) => l.startsWith('blake2'))
-    .map((l) => l.split(',').map((e) => e.trim()).map((e) => e.startsWith('0x') ? parseInt(e, 16) : e))
+    .map((l) => l.split(',').map((e) => e.trim()).map((e) => e.startsWith('0x') ? parseInt(e, 16) : e)))
 
   for (const [name,, code] of codecs) {
     const exportName = name.replace('-', '')
@@ -39,14 +43,14 @@ describe('Hashers', () => {
 
     it(`${name} exports`, () => {
       assert.strictEqual(
-        blake2[b ? 'blake2b' : 'blake2s'][exportName],
-        (b ? blake2b : blake2s)[exportName]
+        /** @type {Record<string, MultihashHasher>} */ (blake2[b ? 'blake2b' : 'blake2s'])[exportName],
+        /** @type {Record<string, MultihashHasher>} */ (b ? blake2b : blake2s)[exportName]
       )
     })
 
     it(name, async () => {
       const length = code - (b ? bstart : sstart) + 1
-      const hasher = (b ? blake2b : blake2s)[exportName]
+      const hasher = /** @type {Record<string, MultihashHasher>} */ (b ? blake2b : blake2s)[exportName]
       const hash = await hasher.digest(beepboop)
       assert.strictEqual(hash.code, hasher.code)
       assert.strictEqual(hash.digest.length, length)
