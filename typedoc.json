@@ -1,0 +1,7 @@
+{
+  "entryPoints": [
+    "./blake2.ts",
+    "./blake2b.ts",
+    "./blake2s.ts"
+  ]
+}
