@@ -1,3 +1,28 @@
+## [2.0.0](https://github.com/multiformats/js-blake2/compare/v1.0.13...v2.0.0) (2023-08-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* esm-only publish, use aegir, multiformats@12
+
+### Features
+
+* esm-only publish, use aegir, multiformats@12 ([3ea977c](https://github.com/multiformats/js-blake2/commit/3ea977cb1f728600d1915c79dec7a163045fe09f))
+
+
+### Bug Fixes
+
+* add "release" section ([a837540](https://github.com/multiformats/js-blake2/commit/a8375403432a86be77f3ad292f9e381d3be639ff))
+
+
+### Trivial Changes
+
+* **deps-dev:** bump polendina from 3.1.0 to 3.2.1 ([68c6619](https://github.com/multiformats/js-blake2/commit/68c6619cfb976871a5fb039112909357ddf5d160))
+* **deps-dev:** bump typescript from 4.9.5 to 5.0.3 ([e95fe5e](https://github.com/multiformats/js-blake2/commit/e95fe5e89addea4dd1b2ec4a497511ed61ac361a))
+* **deps:** bump gozala/typescript-error-reporter-action ([#49](https://github.com/multiformats/js-blake2/issues/49)) ([fa74a5c](https://github.com/multiformats/js-blake2/commit/fa74a5c0c75862ea4394cc136caaa61821c2872c))
+* multiformats@12.1 ([55d0de4](https://github.com/multiformats/js-blake2/commit/55d0de480122536054708c6384c038194c1e63de))
+* Update .github/dependabot.yml [skip ci] ([633e34d](https://github.com/multiformats/js-blake2/commit/633e34d4e73af6a5b6c4360fa0f432cf5f78f7f4))
+
 ## [1.0.13](https://github.com/multiformats/js-blake2/compare/v1.0.12...v1.0.13) (2023-01-06)
 
 
