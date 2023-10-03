@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/multiformats/js-blake2/compare/v2.0.0...v2.0.1) (2023-10-03)
+
+
+### Dependencies
+
+* **dev:** bump aegir from 40.0.13 to 41.0.0 ([afdb158](https://github.com/multiformats/js-blake2/commit/afdb1581f121272880b280d72cccc12155df6c02))
+
 ## [2.0.0](https://github.com/multiformats/js-blake2/compare/v1.0.13...v2.0.0) (2023-08-31)
 
 
