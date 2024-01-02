@@ -1,3 +1,15 @@
+## [2.0.2](https://github.com/multiformats/js-blake2/compare/v2.0.1...v2.0.2) (2024-01-02)
+
+
+### Dependencies
+
+* bump multiformats from 12.1.3 to 13.0.0 ([445f07e](https://github.com/multiformats/js-blake2/commit/445f07e5edbb4d38f2e25ae66cc97f5946bb64b4))
+
+
+### Tests
+
+* update multihashhasher import ([dd1e29e](https://github.com/multiformats/js-blake2/commit/dd1e29e37fa7f857220b7d7cde422850df1ed44d))
+
 ## [2.0.1](https://github.com/multiformats/js-blake2/compare/v2.0.0...v2.0.1) (2023-10-03)
 
 

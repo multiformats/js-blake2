@@ -1,6 +1,6 @@
 {
   "name": "@multiformats/blake2",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Multiformats BLAKE2 implementations",
   "author": "Rod Vagg <r@va.gg>",
   "license": "Apache-2.0 OR MIT",
