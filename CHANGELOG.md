@@ -1,3 +1,14 @@
+## [2.0.3](https://github.com/multiformats/js-blake2/compare/v2.0.2...v2.0.3) (2026-07-03)
+
+### Bug Fixes
+
+* update dependencies ([#71](https://github.com/multiformats/js-blake2/issues/71)) ([090fa3a](https://github.com/multiformats/js-blake2/commit/090fa3a495cb5236907dc6da4eca8f83a1f68594))
+
+### Trivial Changes
+
+* **deps:** update aegir to v47.0.26 ([#70](https://github.com/multiformats/js-blake2/issues/70)) ([4246892](https://github.com/multiformats/js-blake2/commit/42468929c39ecf2da88cf072df7c7ce3cf66a8da))
+* Update .github/dependabot.yml [skip ci] ([58ad5e0](https://github.com/multiformats/js-blake2/commit/58ad5e0d56486253f765159d8bd6718a4c99d481))
+
 ## [2.0.2](https://github.com/multiformats/js-blake2/compare/v2.0.1...v2.0.2) (2024-01-02)
 
 
