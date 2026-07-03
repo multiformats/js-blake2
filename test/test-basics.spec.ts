@@ -1,10 +1,10 @@
-/* eslint-env mocha */
 import { assert } from 'aegir/chai'
 import { bytes } from 'multiformats'
-import * as blake2b from '../src/blake2b.js'
-import * as blake2s from '../src/blake2s.js'
-import blake2 from '../src/index.js'
-import table from './table.csv.js'
+import * as blake2b from '../src/blake2b.ts'
+import * as blake2s from '../src/blake2s.ts'
+import blake2 from '../src/index.ts'
+import table from './table.csv.ts'
+import type { MultihashHasher } from 'multiformats'
 
 const fixtures = {
   'blake2b-512': ['beep boop', 'c0e402400eac6255ba822373a0948122b8d295008419a8ab27842ee0d70eca39855621463c03ec75ac3610aacfdff89fa989d8d61fc00450148f289eb5b12ad1a954f659'],
@@ -20,7 +20,7 @@ const fixtures = {
 describe('Digests', () => {
   for (const [name, fixture] of Object.entries(fixtures)) {
     it(name, async () => {
-      const hasher = /** @type {Record<string, MultihashHasher>} */ ((name.includes('2b') ? blake2b : blake2s))[name.replace('-', '')]
+      const hasher = getHasher(name.includes('2b'), name.replace('-', ''))
       const hash = await hasher.digest(bytes.fromString(fixture[0]))
       assert.strictEqual(hash.code, hasher.code)
       assert.strictEqual(bytes.toHex(hash.bytes), fixture[1])
@@ -33,7 +33,8 @@ describe('Hashers', () => {
   const sstart = 0xb241
   const beepboop = bytes.fromString('beep boop')
 
-  const codecs = /** @type {[string,string,number][]} */ (table.split('\n')
+  // @ts-expect-error splitting by `,` does not guarantee the correct number of array entries
+  const codecs: Array<[string, string, number]> = (table.split('\n')
     .filter((l) => l.startsWith('blake2'))
     .map((l) => l.split(',').map((e) => e.trim()).map((e) => e.startsWith('0x') ? parseInt(e, 16) : e)))
 
@@ -42,15 +43,14 @@ describe('Hashers', () => {
     const b = name.startsWith('blake2b')
 
     it(`${name} exports`, () => {
-      assert.strictEqual(
-        /** @type {Record<string, MultihashHasher>} */ (blake2[b ? 'blake2b' : 'blake2s'])[exportName],
-        /** @type {Record<string, MultihashHasher>} */ (b ? blake2b : blake2s)[exportName]
+      // @ts-expect-error cannot use string to index glob import
+      assert.strictEqual((blake2[b ? 'blake2b' : 'blake2s'])[exportName], getHasher(b, exportName)
       )
     })
 
     it(name, async () => {
       const length = code - (b ? bstart : sstart) + 1
-      const hasher = /** @type {Record<string, MultihashHasher>} */ (b ? blake2b : blake2s)[exportName]
+      const hasher = getHasher(b, exportName)
       const hash = await hasher.digest(beepboop)
       assert.strictEqual(hash.code, hasher.code)
       assert.strictEqual(hash.digest.length, length)
@@ -58,3 +58,13 @@ describe('Hashers', () => {
     })
   }
 })
+
+function getHasher (b: boolean, name: string): MultihashHasher {
+  if (b) {
+    // @ts-expect-error cannot use string to index glob import
+    return blake2b[name]
+  }
+
+  // @ts-expect-error cannot use string to index glob import
+  return blake2s[name]
+}
