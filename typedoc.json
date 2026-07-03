@@ -1,7 +1,8 @@
 {
+  "readme": "none",
   "entryPoints": [
-    "./blake2.ts",
-    "./blake2b.ts",
-    "./blake2s.ts"
+    "./src/index.ts",
+    "./src/blake2b.ts",
+    "./src/blake2s.ts"
   ]
 }
